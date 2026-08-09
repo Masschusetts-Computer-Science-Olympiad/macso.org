@@ -116,7 +116,7 @@
 }
 
 .themeButton:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--blue) 42%, transparent);
+  outline: 3px solid var(--blue-deep);
   outline-offset: 3px;
 }
 

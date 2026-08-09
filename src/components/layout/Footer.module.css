@@ -13,12 +13,20 @@
   margin: 4px auto;
 }
 
+.footer .creditLink {
+  color: var(--accent-text);
+}
+
+.footer .creditLink:hover {
+  color: var(--accent-text);
+}
+
 .topLink {
-  color: var(--footer-text);
+  color: var(--accent-text);
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 700;
-  border-bottom: 2px dotted var(--rule-strong);
+  border-bottom: 2px dotted var(--blue);
   padding-bottom: 2px;
   transition:
     color var(--motion-fast) var(--ease-out),
@@ -26,7 +34,8 @@
 }
 
 .topLink:hover {
-  color: var(--blue-deep);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
 }
 
 .note {

@@ -19,15 +19,24 @@ export function Footer({ page }: FooterProps) {
       </p>
       <p>
         Directed by{' '}
-        <TextLink href={site.credits.mishaZhernevskii}>
+        <TextLink
+          className={styles.creditLink}
+          href={site.credits.mishaZhernevskii}
+        >
           Mikhail Zhernevskii
         </TextLink>
         , Jun 2024 - October 2024
       </p>
       <p>
         Website is made by{' '}
-        <TextLink href={site.credits.lucasChen}>Lucas Chen</TextLink> and{' '}
-        <TextLink href={site.credits.mishaZhernevskii}>
+        <TextLink className={styles.creditLink} href={site.credits.lucasChen}>
+          Lucas Chen
+        </TextLink>{' '}
+        and{' '}
+        <TextLink
+          className={styles.creditLink}
+          href={site.credits.mishaZhernevskii}
+        >
           Misha Zhernevskii
         </TextLink>
       </p>
