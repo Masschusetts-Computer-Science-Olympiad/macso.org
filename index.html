@@ -20,6 +20,17 @@
       name="ahrefs-site-verification"
       content="c1509bc8e24152d05cea5fece1ee623c0ff5af2a365ba4d790b2ccbb25896f72"
     />
+    <script>
+      try {
+        const theme = localStorage.getItem('macso-theme')
+        document.documentElement.dataset.theme =
+          theme === 'light' || theme === 'dark'
+            ? theme
+            : matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+      } catch {}
+    </script>
     <meta
       property="og:title"
       content="Massachusetts Computer Science Olympiad | MACSO"

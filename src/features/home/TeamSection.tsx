@@ -14,13 +14,19 @@ function Avatar({ person }: { person: Person }) {
       width={300}
       height={300}
       loading="lazy"
+      decoding="async"
     />
   )
 
   if (!person.href) return img
 
   return (
-    <a href={person.href} rel="noopener noreferrer">
+    <a
+      href={person.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${person.name} (opens in a new tab)`}
+    >
       {img}
     </a>
   )
@@ -67,7 +73,13 @@ export function TeamSection() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="/images/logos/instagram.svg" alt="" width={20} height={20} />
+        <img
+          src="/images/logos/instagram.svg"
+          alt=""
+          width={20}
+          height={20}
+          decoding="async"
+        />
         {site.instagramHandle}
       </a>
 

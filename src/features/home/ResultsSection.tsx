@@ -11,6 +11,9 @@ export function ResultsSection() {
             <h3>{board.title}</h3>
             <div className={styles.tableWrap}>
               <table>
+                <caption className={styles.visuallyHidden}>
+                  {board.title}
+                </caption>
                 <thead>
                   <tr>
                     <th scope="col">Award</th>

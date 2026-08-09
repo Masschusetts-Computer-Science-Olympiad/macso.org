@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { navLinks } from '~/data/site'
+import { applyTheme, getPreferredTheme, saveTheme } from '~/lib/theme'
 import { type PageId, pageMeta } from './pages'
 import styles from './Header.module.css'
 
@@ -8,36 +9,24 @@ type HeaderProps = {
 }
 
 export function Header({ page }: HeaderProps) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [theme, setTheme] = useState(getPreferredTheme)
   const { topId } = pageMeta[page]
   const isHome = page === 'home'
-  const hashBase = isHome ? '' : 'index.html'
+  const hashBase = isHome ? '' : '/'
 
   useEffect(() => {
-    const savedTheme = window.localStorage.getItem('macso-theme') as
-      'light' | 'dark' | null
-    const nextTheme =
-      savedTheme ??
-      (window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light')
-    setTheme(nextTheme)
-    document.documentElement.dataset.theme = nextTheme
-  }, [])
+    applyTheme(theme)
+  }, [theme])
 
   function toggleTheme() {
     const nextTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(nextTheme)
-    document.documentElement.dataset.theme = nextTheme
-    window.localStorage.setItem('macso-theme', nextTheme)
+    saveTheme(nextTheme)
   }
 
   return (
     <header className={styles.header} id={topId}>
-      <a
-        className={styles.brand}
-        href={isHome ? '#notebook-top' : 'index.html'}
-      >
+      <a className={styles.brand} href={isHome ? '#notebook-top' : '/'}>
         macso<span>.</span>
       </a>
       <nav className={styles.nav} aria-label="Main">
@@ -50,6 +39,7 @@ export function Header({ page }: HeaderProps) {
           className={styles.themeButton}
           type="button"
           onClick={toggleTheme}
+          aria-pressed={theme === 'dark'}
           aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
         >
@@ -65,7 +55,7 @@ export function Header({ page }: HeaderProps) {
         </button>
         <a
           className={styles.hire}
-          href="/careers"
+          href="/careers/"
           aria-current={page === 'careers' ? 'page' : undefined}
         >
           We're hiring &rarr;

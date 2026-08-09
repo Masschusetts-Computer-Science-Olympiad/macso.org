@@ -30,6 +30,8 @@ Vite prints the local development URL after startup.
 | `bun run typecheck`    | Type-check the project                        |
 | `bun run build`        | Type-check and create the production build    |
 | `bun run check`        | Run every local quality check used before CI  |
+| `bun run size:check`   | Enforce checked-in JavaScript and CSS budgets |
+| `bun run lighthouse`   | Run Lighthouse against the production build   |
 | `bun run preview`      | Preview the production build locally          |
 
 Run `bun run check` before opening a pull request.
@@ -41,3 +43,26 @@ added later, document it in `.env.example` and keep real `.env` files local.
 
 Values prefixed with `VITE_` are embedded in the browser bundle and must never
 contain secrets.
+
+## Performance gates
+
+CI rejects JavaScript or CSS growth beyond the limits in
+`scripts/check-build-size.mjs`. The initial limits leave roughly 10–15% above
+the current production build and should be raised only with an explanation in
+the pull request.
+
+Lighthouse runs three times against both generated pages. Accessibility, SEO,
+layout stability, blocking time, and best-practice regressions fail CI;
+performance-score and largest-contentful-paint regressions initially warn while
+the project establishes a stable baseline.
+
+## Deployment
+
+The Cloudflare Pages project should use:
+
+- Build command: `bun install --frozen-lockfile && bun run build`
+- Build output directory: `dist`
+- Root directory: the repository root
+
+Do not set `SKIP_DEPENDENCY_INSTALL`. Cloudflare copies `public/_headers` into
+the production build and applies those response headers to static assets.

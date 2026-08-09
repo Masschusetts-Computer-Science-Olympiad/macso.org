@@ -3,7 +3,7 @@ import styles from './IntroSection.module.css'
 
 export function IntroSection() {
   return (
-    <section className={styles.intro}>
+    <section className={styles.intro} aria-label="About MACSO">
       <div className={styles.polaroid}>
         <Pin />
         <img
