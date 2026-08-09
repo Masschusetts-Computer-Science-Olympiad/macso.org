@@ -55,7 +55,12 @@ export function VenueMap() {
 
   return (
     <div className={styles.frame}>
-      <div className={styles.map} ref={containerRef} />
+      <div
+        className={styles.map}
+        ref={containerRef}
+        role="region"
+        aria-label={`Map showing ${site.venue.name}`}
+      />
     </div>
   )
 }

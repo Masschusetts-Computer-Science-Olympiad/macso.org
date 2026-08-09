@@ -1,11 +1,6 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import { CareersPage } from '~/pages/CareersPage'
 import '~/styles/tokens.css'
 import '~/styles/base.css'
+import { renderPage } from './renderPage'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <CareersPage />
-  </StrictMode>,
-)
+renderPage(<CareersPage />)

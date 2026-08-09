@@ -13,7 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: fileURLToPath(new URL('./index.html', import.meta.url)),
-        careers: fileURLToPath(new URL('./careers.html', import.meta.url)),
+        careers: fileURLToPath(
+          new URL('./careers/index.html', import.meta.url),
+        ),
       },
     },
   },

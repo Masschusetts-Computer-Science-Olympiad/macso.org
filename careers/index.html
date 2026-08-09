@@ -8,10 +8,21 @@
       name="description"
       content="Join the MACSO leadership team. Applications for the MACSO Leadership Internship Program are open: problem writing, operations, fundraising, outreach, and web development roles for high school students in Massachusetts."
     />
-    <link rel="canonical" href="https://macso.org/careers" />
+    <link rel="canonical" href="https://macso.org/careers/" />
     <meta name="author" content="Lucas Chen, Mikhail Zhernevskii" />
     <meta name="theme-color" content="#fbfcff" />
     <meta name="msapplication-TileColor" content="#1f2c5c" />
+    <script>
+      try {
+        const theme = localStorage.getItem('macso-theme')
+        document.documentElement.dataset.theme =
+          theme === 'light' || theme === 'dark'
+            ? theme
+            : matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+      } catch {}
+    </script>
     <meta
       property="og:title"
       content="Careers at MACSO | Massachusetts Computer Science Olympiad"
@@ -21,7 +32,7 @@
       content="Applications for the MACSO Leadership Internship Program are open. Join one of the largest competitive programming organizations in Massachusetts."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://macso.org/careers" />
+    <meta property="og:url" content="https://macso.org/careers/" />
     <meta property="og:site_name" content="MACSO" />
     <meta property="og:locale" content="en_US" />
     <meta

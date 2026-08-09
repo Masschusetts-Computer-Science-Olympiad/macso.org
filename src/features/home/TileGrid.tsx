@@ -14,11 +14,18 @@ export function TileGrid({ tiles, wide = false }: TileGridProps) {
         <a
           className={wide ? `${styles.tile} ${styles.wide}` : styles.tile}
           href={tile.href}
+          target="_blank"
           rel="noopener noreferrer"
+          aria-label={`${tile.name} (opens in a new tab)`}
           key={tile.name}
         >
           <Pin small />
-          <img src={tile.logo} alt={tile.name} loading="lazy" />
+          <img
+            src={tile.logo}
+            alt={tile.name}
+            loading="lazy"
+            decoding="async"
+          />
           <span>{tile.name}</span>
         </a>
       ))}
