@@ -1,3 +1,8 @@
 .narrow {
   max-width: 820px;
+  margin-inline: auto;
+}
+
+.narrow > p {
+  margin-inline: auto;
 }

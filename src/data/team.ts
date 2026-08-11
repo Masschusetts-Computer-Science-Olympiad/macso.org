@@ -16,6 +16,7 @@ export const staff: readonly Person[] = [
     name: 'Ethan Chen',
     role: 'head of fundraising',
     photo: '/images/team/ethan.webp',
+    href: 'https://www.linkedin.com/in/ethan-chen-8a33a8200/',
   },
   {
     name: 'Dana',

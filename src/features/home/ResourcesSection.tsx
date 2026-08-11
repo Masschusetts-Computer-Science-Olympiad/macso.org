@@ -5,7 +5,7 @@ import typography from '~/styles/typography.module.css'
 export function ResourcesSection() {
   return (
     <Section id="resources" title="Want to practice?">
-      <p className={typography.prose}>
+      <p className={typography.lede}>
         To learn the algorithms and data structures for MACSO, you can use
         websites like{' '}
         <TextLink href="https://usaco.guide/">USACO Guide</TextLink> or{' '}
