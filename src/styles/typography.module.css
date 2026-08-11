@@ -12,11 +12,14 @@
   font-size: 1.5rem;
   color: var(--navy);
   margin: 40px 0 0;
+  text-align: center;
 }
 
 .lede {
   max-width: 62ch;
+  margin-inline: auto;
   color: var(--ink-soft);
+  text-align: center;
 }
 
 .prose {

@@ -1,6 +1,7 @@
 .people {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   margin-top: 28px;
 }
@@ -108,10 +109,11 @@
 }
 
 .instagram {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 10px;
+  width: fit-content;
+  margin: 10px auto 0;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--navy);

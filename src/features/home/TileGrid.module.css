@@ -1,6 +1,7 @@
 .tiles {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
   margin-top: 24px;
 }
