@@ -51,7 +51,6 @@
 .highlight {
   background: linear-gradient(
     100deg,
-    transparent 1%,
     var(--highlight-bg) 4%,
     color-mix(in srgb, var(--highlight-bg) 82%, transparent) 96%,
     transparent 99%

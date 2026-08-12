@@ -89,7 +89,6 @@
 .awardFirst {
   background: linear-gradient(
     100deg,
-    transparent 2%,
     var(--highlight-bg) 8%,
     color-mix(in srgb, var(--highlight-bg) 82%, transparent) 92%,
     transparent 98%
