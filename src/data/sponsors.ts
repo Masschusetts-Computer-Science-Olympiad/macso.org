@@ -6,6 +6,11 @@ export type Tile = {
 
 export const sponsors: readonly Tile[] = [
   {
+    name: 'Jane Street',
+    href: 'https://www.janestreet.com/',
+    logo: '/images/logos/jane-street.png',
+  },
+  {
     name: 'Google',
     href: 'https://edu.google.com/',
     logo: '/images/logos/google.webp',
