@@ -17,7 +17,7 @@ export function HomeHero() {
       <HeroTitle>
         Massachusetts Computer Science <Highlight>Olympiad</Highlight>
       </HeroTitle>
-      <HeroStatus label="MACSO 2026" value="September 26, 2026" />
+      <HeroStatus label="MACSO 2026" value="Late September 2026" />
       <HeroActions>
         <Button href={site.registrationForm}>
           <PencilIcon />
