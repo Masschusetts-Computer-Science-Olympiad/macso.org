@@ -41,10 +41,10 @@ export const faqItems: readonly FaqItem[] = [
     question: 'When and where is the competition?',
     answer: (
       <>
-        MACSO 2026 will take place in late September 2026, from 1:00 PM to
-        4:00 PM at 101 Rogers Street, Cambridge, MA 02142. Please arrive by
-        12:45 PM so we can get everyone checked in before the contest begins.
-        Prizes will be awarded to our top competitors, just like last year!
+        MACSO 2026 will take place in late September 2026, from 1:00 PM to 4:00
+        PM at 101 Rogers Street, Cambridge, MA 02142. Please arrive by 12:45 PM
+        so we can get everyone checked in before the contest begins. Prizes will
+        be awarded to our top competitors, just like last year!
       </>
     ),
   },
