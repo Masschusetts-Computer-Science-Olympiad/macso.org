@@ -13,3 +13,24 @@
 :global(.leaflet-container) {
   font-family: var(--font-body);
 }
+
+:global(:root[data-theme='dark']) .map :global(.leaflet-bar a),
+:global(:root[data-theme='dark']) .map :global(.leaflet-popup-content-wrapper),
+:global(:root[data-theme='dark']) .map :global(.leaflet-popup-tip),
+:global(:root[data-theme='dark']) .map :global(.leaflet-control-attribution) {
+  color: var(--ink);
+  background: var(--control-bg);
+}
+
+:global(:root[data-theme='dark']) .map :global(.leaflet-bar a) {
+  border-bottom-color: var(--rule);
+}
+
+:global(:root[data-theme='dark']) .map :global(.leaflet-bar a:hover) {
+  color: var(--ink);
+  background: var(--surface-hover);
+}
+
+:global(:root[data-theme='dark']) .map :global(.leaflet-control-attribution a) {
+  color: var(--blue-deep);
+}

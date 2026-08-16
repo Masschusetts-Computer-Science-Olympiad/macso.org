@@ -21,6 +21,17 @@ const venueIcon = L.icon({
 const ATTRIBUTION =
   '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 
+const TILE_URLS = {
+  light: 'https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+  dark: 'https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+} as const
+
+function getTileUrl() {
+  return document.documentElement.dataset.theme === 'dark'
+    ? TILE_URLS.dark
+    : TILE_URLS.light
+}
+
 export function VenueMap() {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -34,9 +45,23 @@ export function VenueMap() {
       scrollWheelZoom: false,
     }).setView([lat, lng], 14)
 
-    L.tileLayer('https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    let currentTileUrl = getTileUrl()
+    const tileLayer = L.tileLayer(currentTileUrl, {
       attribution: '',
     }).addTo(map)
+
+    const themeObserver = new MutationObserver(() => {
+      const nextTileUrl = getTileUrl()
+      if (nextTileUrl === currentTileUrl) return
+
+      currentTileUrl = nextTileUrl
+      tileLayer.setUrl(currentTileUrl)
+    })
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    })
 
     L.control
       .attribution({ position: 'bottomright', prefix: false })
@@ -49,6 +74,7 @@ export function VenueMap() {
       .openPopup()
 
     return () => {
+      themeObserver.disconnect()
       map.remove()
     }
   }, [])
